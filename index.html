@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Anniversary</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="header">
+          <div class="heart"></div>
+          <h1>Happy 2nd Anniversary</h1>
+          <div class="heart"></div>
+        </div>
+
+        <div id="cakeSection" class="cake-section">
+          <div class="cake" onclick="handleCakeClick()">
+            <div class="cake-icon">🎂</div>
+            <div id="candle" class="candle">
+              <div class="flame"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="messageSection" class="message-section hidden">
+          <div class="message-card">
+            <h2>My Dearest Love</h2>
+            <p>
+              Every moment with you feels like a beautiful dream come true. Your
+              love has filled my life with joy, laughter, and endless happiness.
+              As we celebrate another year together, I want you to know that my
+              heart beats stronger each day with love for you. You're not just
+              my partner, you're my best friend, my soulmate, and my everything.
+              Here's to many more years of creating beautiful memories together.
+              I love you more than words can express. Happy Anniversary, my
+              love! ❤️
+            </p>
+            <button onclick="showMemories()" class="view-memories-btn">
+              <span class="heart-icon">❤️</span>
+              View Our Memories
+            </button>
+          </div>
+        </div>
+
+        <div id="gallerySection" class="gallery-section hidden">
+          <div class="gallery">
+            <img id="currentImage" src="" alt="Memory" class="memory-image" />
+            <div class="image-overlay">
+              <p id="imageDate" class="image-date"></p>
+              <p id="imageMessage" class="image-message"></p>
+            </div>
+            <button onclick="prevSlide()" class="nav-btn prev-btn">❮</button>
+            <button onclick="nextSlide()" class="nav-btn next-btn">❯</button>
+          </div>
+          <div class="dots-container" id="dotsContainer"></div>
+        </div>
+
+        <div id="balloonSection" class="balloon-section hidden"></div>
+        <div id="balloonContainer" class="balloon-container hidden">
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <!-- Add more balloons as needed -->
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
