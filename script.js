@@ -1,32 +1,50 @@
+let touchStartX = 0;
+let touchEndX = 0;
+
 const memories = [
     {
-        image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80",
-        message: "The day we first met changed my life forever.",
+        image: "./images/img1.jpg",
+        message: "The day we first met school ke bahar ❤️",
         date: "First Meet"
     },
     {
-        image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&q=80",
-        message: "Every moment with you feels like a beautiful dream.",
+        image: "./images/img2.jpg",
+        message: "Aisa lagta hai sapna sach hogya 🥺",
         date: "Our First School Pic"
     },
     {
-        image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80",
-        message: "The day we first met changed my life forever.",
+        image: "./images/img3.jpg",
+        message: "26 December kaise bhul skta hai koi 🤔 ?? ",
         date: "First Date"
     },
     {
-        image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80",
-        message: "Here's to many more years of love and happiness together.",
+        image: "./images/img4.jpg",
+        message: "Kitni mushkil se mile th but acha khasa time spend hogya tha saath mai 💗",
         date: "1st Anniversary Day"
     },
     {
-        image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80",
-        message: "Your smile brightens up even my darkest days.",
+        image: "./images/img5.jpg",
+        message: "Farewell ki shaam apke naam 🙇",
         date: "Special Moments"
     },
     {
-        image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80",
-        message: "Thank you for being my rock and my inspiration.",
+        image: "./images/img6.jpg",
+        message: "Yaad hai na Kutta billi wala photo 🤣",
+        date: "Special Moments"
+    },
+    {
+        image: "./images/img7.jpg",
+        message: "One of the best days of school 🥹",
+        date: "Special Moments"
+    },
+    {
+        image: "./images/img8.jpg",
+        message: "Kuch nhi bolunga 🤫",
+        date: "Special Moments"
+    },
+    {
+        image: "./images/img9.jpg",
+        message: "Thank you for everything 💗🥹",
         date: "Together Forever"
     }
 ];
@@ -69,6 +87,7 @@ function handleCakeClick() {
 }
 
 // Ensure other functions are correctly accessing elements and updating the DOM
+
 function showMemories() {
     const messageSection = document.getElementById('messageSection');
     const gallerySection = document.getElementById('gallerySection');
@@ -82,6 +101,7 @@ function showMemories() {
                 gallerySection.classList.add('visible');
                 updateGallery();
                 createDots();
+                addSwipeListeners(); // Add this line
             }, 50);
         }, 500);
     } else {
@@ -131,4 +151,22 @@ function nextSlide() {
 function prevSlide() {
     currentIndex = (currentIndex - 1 + memories.length) % memories.length;
     updateGallery();
+}
+
+function handleGesture() {
+    if (touchEndX < touchStartX) nextSlide();
+    if (touchEndX > touchStartX) prevSlide();
+}
+
+function addSwipeListeners() {
+    const gallery = document.querySelector('.gallery');
+    
+    gallery.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    gallery.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleGesture();
+    });
 }
